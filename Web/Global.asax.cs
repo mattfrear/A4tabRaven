@@ -1,7 +1,4 @@
-﻿using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.WindowsAzure.StorageClient;
-using Raven.Client;
+﻿using Raven.Client;
 using Raven.Client.Embedded;
 using Raven.Client.Indexes;
 using System;
