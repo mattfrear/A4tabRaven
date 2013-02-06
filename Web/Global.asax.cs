@@ -64,7 +64,7 @@ namespace Web
         private static void InitialiseDocumentStore()
         {
             var useEmbeddedHttpServer = Boolean.Parse(ConfigurationManager.AppSettings["UseEmbeddedHttpServer"]);
-            DocumentStore = new EmbeddableDocumentStore { ConnectionStringName = "RavenDB", UseEmbeddedHttpServer = useEmbeddedHttpServer };
+            DocumentStore = new EmbeddableDocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING", UseEmbeddedHttpServer = useEmbeddedHttpServer };
             DocumentStore.Conventions.IdentityPartsSeparator = "-";
             DocumentStore.Initialize();
 
