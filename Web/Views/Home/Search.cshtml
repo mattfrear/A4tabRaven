@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Web.Models.Tab>
+
+@{
+    ViewBag.Title = ViewBag.SearchTerms + " search - A4tab.net";
+}
+
+<h1>@ViewBag.SearchTerms - search</h1>
+<h4>
+    @TempData[Web.Infrastructure.Constants.TempDataMessage]
+</h4>
+
+@if (!Model.Any())
+{
+    <p>No tabs found.</p>
+}
+
+<ul>
+@foreach (var song in Model)
+{
+    <li>
+        @Html.ActionLink(String.Format("{0} - {1}", song.Artist, song.Name), "Details", "Songs", new { id=song.Id }, null)
+    </li>    
+}
+</ul>
+<p>
+    @Html.ActionLink("Browse all Songs", "Index", "Songs")
+</p>
+

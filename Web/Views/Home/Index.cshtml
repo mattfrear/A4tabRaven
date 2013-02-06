@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Web.Models.Tab>
+
+@{
+    ViewBag.Title = "A4tab.net";
+}
+<h1>Welcome</h1>
+<div class="entry">
+    <p>
+        Welcome to A4tab.net! Here you'll find guitar tabs and chords which are optimized for printing on one
+        side of A4 (aka letter) paper. What's so great about that? Well:
+    </p>
+    <ul>
+        <li>Great for singalongs and jams - you don't need to turn the page halfway through a song</li>
+        <li>All our tabs have ALL the lyrics for the songs - again, great for singalongs</li>
+        <li>More readable (vs printing in 2-up mode)</li>
+    </ul>
+    <p>
+        Our tabs are also good for viewing on an ebook reader like a Kindle.
+    </p>
+    <p>
+        To print, all you need to do is just go File -> Print in your browser and the tabs should print nicely without any headings or guff.
+    </p>
+    <p>
+        @Html.ActionLink("Browse all A4tabs", "Index", "Songs")!
+    </p>
+    <p>
+        Tabs can also be grouped with other tabs into collections we call <a href="/Books">Songbooks</a>.
+    </p>
+</div>
+<h3>Ten Newest tabs</h3>
+<div class="entry">
+@if (Model != null && Model.Any())
+{
+    <ul>
+    @foreach (var item in Model) {
+        <li>
+            @Html.ActionLink(String.Format("{0} - {1}", item.Artist, item.Name), "Details", "Songs", new { id=item.Id }, null)
+	    </li>
+    }
+    </ul>
+}
+</div>
+<h3>Website todo list</h3>
+<div class="entry">
+New features coming soon:
+<ul>
+    <li><del>Just list all songs instead of by Artist</del></li>
+    <li><del>Print stylesheet</del></li>
+    <li><del>Save button</del></li>
+    <li><del>Print button</del></li>
+    <li>PDF button</li>
+    <li>Tag songs</li>
+    <li><del>Add meta info to each song for search engines</del></li>
+    <li>Visitor counter</li>
+    <li><del>Mobile css for viewing on iPhone etc</del></li>
+    <li><del>Song books</del></li>
+    <li>RSS Feed</li>
+</ul>
+</div>

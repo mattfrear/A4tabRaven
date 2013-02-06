@@ -1,0 +1,30 @@
+﻿
+@helper Pluralize(string singularWord, int count)
+{
+    if (count == 1) 
+    {
+        @singularWord   
+    }
+    else
+    {
+        @(singularWord + "s")
+    }
+}
+
+@helper Pluralize(string singularWord, System.Collections.IList list)
+{
+    if (list == null)
+    {
+        @Pluralize(singularWord, 0)
+    }
+    else
+    {
+        @Pluralize(singularWord, list.Count)
+    }
+}
+
+
+@helper ListCount(List<int> array)
+{
+    @(array == null ? 0 : array.Count())
+}

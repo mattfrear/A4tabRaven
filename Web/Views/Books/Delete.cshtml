@@ -1,0 +1,26 @@
+@model Web.Models.Book
+
+@{
+    ViewBag.Title = "Delete Book? - A4tab.net";
+}
+
+<h1>Delete</h1>
+
+<h4>Are you sure you want to delete this?</h4>
+<fieldset>
+    <legend>Book</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Tabs</div>
+    <div class="display-field">@(Model.TabIds == null ? "None" : Model.TabIds.Count.ToString())</div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
+

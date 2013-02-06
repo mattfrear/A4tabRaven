@@ -1,0 +1,25 @@
+@model IEnumerable<Web.Models.Tab>
+@using Web.Extensions
+
+@{
+    ViewBag.Title = "All Songs - A4tab.net";
+}
+
+<h1>All Songs</h1>
+<h4>
+    @TempData[Web.Infrastructure.Constants.TempDataMessage]
+</h4>
+
+<div class="alltabs">
+@{
+    string startChar = ".";
+    
+    foreach (var item in Model)
+    {
+        @Html.UniqueStartChar(item.Artist, ref startChar);
+        <p>
+            @Html.ActionLink(item.Artist + " - " + item.Name, "Details", new { id = item.Id })
+        </p>
+    }
+}
+</div>

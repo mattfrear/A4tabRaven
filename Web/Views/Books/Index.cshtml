@@ -1,0 +1,41 @@
+@model IEnumerable<Book>
+@using Web.Models;
+
+@{
+    ViewBag.Title = "All Books - A4tab.net";
+}
+
+@helper DeleteButton(Book book)
+{
+    if (User.Identity.IsAuthenticated)
+    {
+        @Html.ActionLink("Delete", "Delete", new { id = book.Id })   
+    }
+}
+<h1>All Books</h1>
+<h4>
+    @TempData[Web.Infrastructure.Constants.TempDataMessage]
+</h4>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
+<table id="allbooks">
+    @if (!Model.Any())
+    {
+        <p>No books.</p>
+    }
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+			    @Html.ActionLink(item.Name, "Details", new { id = item.Id }) (@MyHelpers.ListCount(item.TabIds) @MyHelpers.Pluralize("song", item.TabIds))
+                @DeleteButton(item)
+		    </td>
+        </tr>
+    }
+</table>
+

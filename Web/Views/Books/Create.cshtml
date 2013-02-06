@@ -1,0 +1,31 @@
+@model Web.Models.Book
+
+@{
+    ViewBag.Title = "Create Book - A4tab.net"; ;
+}
+
+<h1>Create Book</h1>
+<h4>
+    @TempData[Web.Infrastructure.Constants.TempDataMessage]
+</h4>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Book</legend>
+
+		@Html.Partial("_CreateOrEdit", Model)
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

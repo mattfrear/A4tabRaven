@@ -1,0 +1,50 @@
+@model Web.Models.Tab
+
+@{
+    ViewBag.Title = @Model.Name + " - A4tab.net";
+}
+
+<h1>@Model.Artist - @Model.Name</h1>
+<h4>
+    @TempData[Web.Infrastructure.Constants.TempDataMessage]
+</h4>
+
+<div id="top-buttons">
+    <a href="@Url.Action("Download", new { id = Model.Id })" title="Download" ><img alt="Download" src="@Url.Content("~/Content/images/disk.png")" /></a>
+    &nbsp;&nbsp;
+    <a href="" title="Print (without sidebar and headings)" onclick="window.print(); return false;" ><img alt="Print" src="@Url.Content("~/Content/images/printer.png")" /></a>
+</div>
+    
+<div class="tablature">
+@Html.Raw(Model.Content.Replace(" ", "&nbsp;").Replace(Environment.NewLine, "<br />"))
+</div><br />
+<p>
+    @Html.ActionLink("More from " + Model.Artist, "Details", "Artists", new { id = Model.Artist }, null)
+</p>
+
+<h2>Books</h2>
+<div id="books">
+@if (ViewBag.Books.Count > 0)
+{
+        <p>This song is included these Songbooks:
+            @foreach (var b in ViewBag.Books)
+            {
+                var book = (Web.Models.Book)b;
+                @Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null);
+                <text>&nbsp;</text>
+            }
+        </p>
+}
+else
+{
+    <p>This song isn't in any of our Songbooks.</p>
+}
+
+@if (User.Identity.IsAuthenticated /* && Roles.IsUserInRole("Admin")*/)
+{
+    using (Html.BeginForm("AddToBook", "Songs", new { id = Model.Id }, FormMethod.Post))
+    {
+        <text>Add to Book:</text> @Html.DropDownList("BookId", (SelectList)ViewBag.AllBooks, "--") <input type="submit" value="Add" />
+    }
+}
+</div>

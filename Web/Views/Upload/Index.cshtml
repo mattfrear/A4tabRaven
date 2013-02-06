@@ -1,0 +1,62 @@
+﻿@model Web.Models.Upload
+
+@{
+    ViewBag.Title = "Upload - A4tab.net";
+}
+
+<h1>Upload</h1>
+
+
+@if (Request.IsAuthenticated)
+{
+using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Artist)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Artist)
+    @Html.ValidationMessageFor(model => model.Artist)
+</div>
+    
+<div class="editor-label">
+    @Html.LabelFor(model => model.Name)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Name)
+    @Html.ValidationMessageFor(model => model.Name)
+</div>
+
+<div class="editor-label">
+    Book:
+</div>
+<div class="editor-field">
+    @Html.DropDownList("BookId", (SelectList)ViewBag.Books, "--")
+</div>
+
+<div class="editor-label">
+    @Html.LabelFor(model => model.Tab) <input type="submit" value="Upload" />
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Tab)
+    @Html.ValidationMessageFor(model => model.Tab)
+</div>
+    
+<p>
+    <input type="submit" value="Upload" />
+</p>
+}
+}
+else
+{
+    <p>You need to be Logged in to upload a new file. If you don't have an account, please create one, or you can login using Google or Facebook. @Html.ActionLink("Log in or Register", "Login", "Account").</p>
+}
+<div>
+    @Html.ActionLink("Back Home", "Index", "Home")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

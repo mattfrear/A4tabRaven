@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link  href="http://fonts.googleapis.com/css?family=Rock+Salt:regular&v1" rel="stylesheet" type="text/css" />
+@if (ViewBag.Keywords == null)
+{
+    <meta name="keywords" content="guitar, tab, chords" />    
+}
+else
+{
+    <meta name="keywords" content="@ViewBag.Keywords" />
+}
+@if (ViewBag.Description == null)
+{
+    <meta name="description" content="guitar tabs with lyrics" />
+}
+else
+{
+    <meta name="description" content="@ViewBag.Description" />
+}
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>@ViewBag.Title</title>
+<link href="@Url.Content("~/Content/enormous/style.css")" rel="stylesheet" type="text/css" media="screen" />
+<link href="@Url.Content("~/Content/css/print.css")" rel="stylesheet" type="text/css" media="print" />
+
+<script type="text/javascript">
+
+    // Google Analytics crap
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24484428-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+</script>
+
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<h1>@Html.ActionLink("A4tab.net", "Index", "Home")</h1>
+			<p>Guitar tabs optimised for printing on an A4 (letter) sheet of paper</p>
+		</div>
+		<div id="menu">
+			<ul>
+                <li>@Html.ActionLink("Browse", "Index", "Songs")</li>
+                <li>@Html.ActionLink("Songbooks", "Index", "Books")</li>
+                <li>@Html.ActionLink("Upload", "Index", "Upload")</li>
+			</ul>
+		</div>
+	</div>
+	<!-- end #header -->
+	<div id="page">
+		<div id="page-bgtop">
+			<div id="page-bgbtm">
+				<div id="content">
+					<div class="post">
+                        @RenderBody()
+					</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+					<ul>
+						<li>
+                            <h2>Search</h2>
+							<div id="search" >
+								@using (Html.BeginForm("Search", "Home"))
+        {
+									<div>
+										<input type="text" name="s" id="search-text" value="" />
+										<input type="submit" id="search-submit" value="GO" />
+									</div>
+        }
+							</div>
+							<div class="clear" style="clear: both;">&nbsp;</div>
+						</li>
+                        <li>
+							<h2>Login / Register</h2>
+							<p>@Html.Partial("_LoginPartial")</p>
+						</li>
+                        <li>
+							<h2>Contact Us</h2>
+							<p><a href="mailto:admin@a4tab.net">admin@a4tab.net</a></p>
+						</li>
+					</ul>
+				</div>
+				<!-- end #sidebar -->
+				<div class="clear" style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Copyright &copy; 2011 A4tab.net. All rights reserved. Design by <a href="http://www.freecsstemplates.org/">CSS Templates</a>.</p>
+</div>
+<!-- end #footer -->
+@Scripts.Render("~/bundles/jquery")
+@RenderSection("scripts", required: false)
+</body>
+</html>

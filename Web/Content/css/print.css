@@ -1,0 +1,80 @@
+﻿#header
+{
+    display:none;
+}
+
+#menu
+{
+    display:none;
+}
+
+#sidebar
+{
+    display:none;
+}
+
+#footer
+{
+    display:none;
+}
+
+div#content 
+{
+	width: auto; 
+	margin: 0 5%;
+	padding: 0; 
+	border: 0;
+	float: none !important;
+	color: black; 
+	background: transparent;
+}
+
+div.clear
+{
+    display:none;
+}
+
+body 
+{
+	background: white;
+}
+
+h1
+{
+    display:none;
+}
+
+h2
+{
+    display:none;
+}
+
+.tablature 
+{
+    font-family: monospace;
+    font-size: 10pt;
+}
+
+a 
+{
+    display:none;
+}
+#top-buttons
+{
+    display:none;
+}
+h3
+{
+    display:none;
+}
+#books
+{
+    display:none;
+}
+form {
+    display: none;
+}
+
+h4 {
+    display: none;
+}
