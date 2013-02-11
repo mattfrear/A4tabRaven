@@ -59,7 +59,7 @@ namespace Web
             InitialiseDocumentStore();
 
             var import = new ImportTasks();
-            //import.Import();
+            import.Import();
         }
 
         private static void InitialiseDocumentStore()
