@@ -1,4 +1,5 @@
 ﻿using Raven.Client;
+using Raven.Client.Document;
 using Raven.Client.Embedded;
 using Raven.Client.Indexes;
 using System;
@@ -63,8 +64,16 @@ namespace Web
 
         private static void InitialiseDocumentStore()
         {
-            var useEmbeddedHttpServer = Boolean.Parse(ConfigurationManager.AppSettings["UseEmbeddedHttpServer"]);
-            DocumentStore = new EmbeddableDocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING", UseEmbeddedHttpServer = useEmbeddedHttpServer };
+            var useEmbeddedRavenServer = Boolean.Parse(ConfigurationManager.AppSettings["UseEmbeddedRavenServer"]);
+            if (useEmbeddedRavenServer)
+            {
+                DocumentStore = new EmbeddableDocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING", UseEmbeddedHttpServer = true };
+            }
+            else
+            {
+                DocumentStore = new DocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING" };
+            }
+                
             DocumentStore.Conventions.IdentityPartsSeparator = "-";
             DocumentStore.Initialize();
 
