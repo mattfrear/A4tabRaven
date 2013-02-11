@@ -67,11 +67,11 @@ namespace Web
             var useEmbeddedRavenServer = Boolean.Parse(ConfigurationManager.AppSettings["UseEmbeddedRavenServer"]);
             if (useEmbeddedRavenServer)
             {
-                DocumentStore = new EmbeddableDocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING", UseEmbeddedHttpServer = true };
+                DocumentStore = new EmbeddableDocumentStore { ConnectionStringName = "RavenDB", UseEmbeddedHttpServer = true };
             }
             else
             {
-                DocumentStore = new DocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING" };
+                DocumentStore = new DocumentStore { ConnectionStringName = "RavenDB" };
             }
                 
             DocumentStore.Conventions.IdentityPartsSeparator = "-";
