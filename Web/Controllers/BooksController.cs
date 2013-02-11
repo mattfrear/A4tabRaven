@@ -11,7 +11,7 @@ namespace Web.Controllers
     {
 		//
         // GET: /Books/
-
+        [OutputCache(NoStore = true, Duration = 0, VaryByParam = "*")]
         public ViewResult Index()
         {
             var model = RavenSession.Query<Book>().OrderBy(x => x.Name).ToList();
