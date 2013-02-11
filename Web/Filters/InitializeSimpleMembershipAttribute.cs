@@ -38,7 +38,7 @@ namespace Web.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("SQLSERVER_CONNECTION_STRING", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("MembershipDb", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {
