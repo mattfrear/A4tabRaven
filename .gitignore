@@ -31,4 +31,6 @@ _ReSharper*/**
 *.ncrunch*
 packages
 desktop.ini
-Web/App_Data
+*.mdf
+*.ldf
+Web/App_Data/Database

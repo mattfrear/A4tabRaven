@@ -14,16 +14,7 @@ namespace Web.Tasks
         {
             new LogEvent("Starting import").Raise();
 
-            var path = ConfigurationManager.AppSettings["ImportFolder"];
-
-            if (string.IsNullOrEmpty(path))
-            {
-                new LogEvent("No Import folder, aborting.").Raise();
-                return;
-            }
-
-
-            var physicalPath = System.Web.HttpContext.Current.Server.MapPath(path);
+            var physicalPath = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/Import");
 
             using (var session = RavenController.DocumentStore.OpenSession())
             {

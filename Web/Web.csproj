@@ -203,6 +203,14 @@
     <Compile Include="Tasks\BookTasks.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Import\A-ha - Take On Me.txt" />
+    <Content Include="App_Data\Import\Adele - Rolling in the Deep.txt" />
+    <Content Include="App_Data\Import\Beatles - Hey Jude.txt" />
+    <Content Include="App_Data\Import\Beegees - To Love Somebody.txt" />
+    <Content Include="App_Data\Import\Ben Harper - Steal My Kisses.txt" />
+    <Content Include="App_Data\Import\Bill Withers - Ain%27t No Sunshine.txt" />
+    <Content Include="App_Data\Import\Bob Marley - 3 Little Birds.txt" />
+    <Content Include="App_Data\Import\Bob Marley - No Woman No Cry.txt" />
     <Content Include="Content\css\print.css" />
     <Content Include="Content\enormous\images\img01.jpg" />
     <Content Include="Content\enormous\images\img02.jpg" />
@@ -330,7 +338,6 @@
     <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Import\" />
   </ItemGroup>
   <ItemGroup>
