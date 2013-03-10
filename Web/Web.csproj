@@ -203,59 +203,6 @@
     <Compile Include="Tasks\BookTasks.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Import\Amy Winehouse - Valerie.txt" />
-    <Content Include="App_Data\Import\Amy Winehouse - You Know I%27m No Good.txt" />
-    <Content Include="App_Data\Import\Andres Calamaro - Flaca.txt" />
-    <Content Include="App_Data\Import\Andres Calamaro - Te Quiero Igual.txt" />
-    <Content Include="App_Data\Import\Andres Calamaro - Tuyo Siempre.txt" />
-    <Content Include="App_Data\Import\Babasonicos - El colmo.txt" />
-    <Content Include="App_Data\Import\Babasonicos - Puesto.txt" />
-    <Content Include="App_Data\Import\Band of Horses - No one%27s gonna love you.txt" />
-    <Content Include="App_Data\Import\Bersuit - El Tiempo no para.txt" />
-    <Content Include="App_Data\Import\Cake - I Will Survive.txt" />
-    <Content Include="App_Data\Import\Coldplay - Amsterdam.txt" />
-    <Content Include="App_Data\Import\Colin Hay - Overkill.txt" />
-    <Content Include="App_Data\Import\Eels - That Look You Give That Guy.txt" />
-    <Content Include="App_Data\Import\Elbow - One Day Like This.txt" />
-    <Content Include="App_Data\Import\Elbow - The Bones of You.txt" />
-    <Content Include="App_Data\Import\Evermore - It%27s Too Late.txt" />
-    <Content Include="App_Data\Import\Flaming Lips - Do You Realize.txt" />
-    <Content Include="App_Data\Import\Flaming Lips - Fight Test.txt" />
-    <Content Include="App_Data\Import\Flight of the Conchords - If You%27re Into It.txt" />
-    <Content Include="App_Data\Import\Foo Fighters - Baker Street.txt" />
-    <Content Include="App_Data\Import\Gin Wigmore - I Do.txt" />
-    <Content Include="App_Data\Import\Gomez - Tijuana Lady.txt" />
-    <Content Include="App_Data\Import\Green Day - Are we the waiting.txt" />
-    <Content Include="App_Data\Import\Green Day - Give me Novacaine.txt" />
-    <Content Include="App_Data\Import\Green Day - Jesus of Suburbia.txt" />
-    <Content Include="App_Data\Import\Incubus - Warning.txt" />
-    <Content Include="App_Data\Import\Intoxicados - Esta Saliendo El Sol.txt" />
-    <Content Include="App_Data\Import\Intoxicados - Fuego.txt" />
-    <Content Include="App_Data\Import\Intoxicados - Nunca Quise.txt" />
-    <Content Include="App_Data\Import\Jason Mraz - I%27m Yours.txt" />
-    <Content Include="App_Data\Import\Javier Calamaro - La Senda.txt" />
-    <Content Include="App_Data\Import\Jeff Bridges - Hold on You.txt" />
-    <Content Include="App_Data\Import\Juanes - Dificil.txt" />
-    <Content Include="App_Data\Import\Kevin Johansen - Down With My Baby.txt" />
-    <Content Include="App_Data\Import\Mana - 02 - En El Muelle De San Blas.txt" />
-    <Content Include="App_Data\Import\Mana - 06 - Te Salté La Rienda.txt" />
-    <Content Include="App_Data\Import\Mana - 07 - Desapariciones.txt" />
-    <Content Include="App_Data\Import\Mana - 11 - Rayando El Sol chords.txt" />
-    <Content Include="App_Data\Import\Maroon 5 - Sunday Morning.txt" />
-    <Content Include="App_Data\Import\Midnight Youth - The Letter.txt" />
-    <Content Include="App_Data\Import\Neil Young - Heart of Gold.txt" />
-    <Content Include="App_Data\Import\Opshop - One Day.txt" />
-    <Content Include="App_Data\Import\Opshop - Waiting Now.txt" />
-    <Content Include="App_Data\Import\Pearl Jam - Oceans.txt" />
-    <Content Include="App_Data\Import\Pete Murray - So Beautiful.txt" />
-    <Content Include="App_Data\Import\Red Hot Chili Peppers - Californication - 07 - Easily.txt" />
-    <Content Include="App_Data\Import\Red Hot Chili Peppers - Californication - 11 - This Velvet Glove.txt" />
-    <Content Include="App_Data\Import\Red Hot Chili Peppers - Desecration Smile.txt" />
-    <Content Include="App_Data\Import\Red Hot Chili Peppers - Stadium Arcadium - 01 - Dani California.txt" />
-    <Content Include="App_Data\Import\Red Hot Chili Peppers - Stadium Arcadium - 04 - Stadium Arcadium.txt" />
-    <Content Include="App_Data\Import\Red Hot Chili Peppers - Tear.txt" />
-    <Content Include="App_Data\Import\Tenacious D - Fuck Her Gently.txt" />
-    <Content Include="App_Data\Import\The Black Keys - Little Black Submarines.txt" />
     <Content Include="Content\css\print.css" />
     <Content Include="Content\enormous\images\img01.jpg" />
     <Content Include="Content\enormous\images\img02.jpg" />
@@ -383,6 +330,7 @@
     <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\Import\" />
     <Folder Include="Import\" />
   </ItemGroup>
   <ItemGroup>
