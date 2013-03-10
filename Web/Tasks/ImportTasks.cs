@@ -39,7 +39,7 @@ namespace Web.Tasks
 
                     session.Store(tab);
 
-                    bookTasks.AddTabToBook(tab.Id, book.Id); // add song to Singalong book
+                    // bookTasks.AddTabToBook(tab.Id, book.Id); // add song to Singalong book
 
                     File.Delete(filePath);
                 }
