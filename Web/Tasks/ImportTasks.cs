@@ -4,6 +4,7 @@ using Web.Controllers;
 using Web.Models;
 using System.Linq;
 using System;
+using Web.Infrastructure;
 
 namespace Web.Tasks
 {
@@ -11,12 +12,16 @@ namespace Web.Tasks
     {
         public void Import()
         {
+            new LogEvent("Starting import").Raise();
+
             var path = ConfigurationManager.AppSettings["ImportFolder"];
-            
+
             if (string.IsNullOrEmpty(path))
             {
+                new LogEvent("No Import folder, aborting.").Raise();
                 return;
             }
+
 
             var physicalPath = System.Web.HttpContext.Current.Server.MapPath(path);
 
@@ -50,6 +55,9 @@ namespace Web.Tasks
 
                 session.SaveChanges();
             }
+
+            new LogEvent("Finished import").Raise();
         }
+
     }
 }
