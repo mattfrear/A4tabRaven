@@ -23,6 +23,7 @@ else
 <title>@ViewBag.Title</title>
 <link href="@Url.Content("~/Content/enormous/style.css")" rel="stylesheet" type="text/css" media="screen" />
 <link href="@Url.Content("~/Content/css/print.css")" rel="stylesheet" type="text/css" media="print" />
+<meta name="viewport" content="width=670, initial-scale=0.45, minimum-scale=0.45"/>
 
 <script type="text/javascript">
 
@@ -52,6 +53,7 @@ else
                 <li>@Html.ActionLink("Browse", "Index", "Songs")</li>
                 <li>@Html.ActionLink("Songbooks", "Index", "Books")</li>
                 <li>@Html.ActionLink("Upload", "Index", "Upload")</li>
+                <li>@Html.Partial("_ViewSwitcher")</li>
 			</ul>
 		</div>
 	</div>
