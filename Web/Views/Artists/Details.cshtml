@@ -1,0 +1,23 @@
+@model IEnumerable<Web.Models.Tab>
+
+@{
+    string artistName = @Model.First().Artist;
+    ViewBag.Title = artistName + " - A4tab.net";
+}
+
+<h1>@artistName tabs</h1>
+<h4>
+    @TempData[Web.Infrastructure.Constants.TempDataMessage]
+</h4>
+
+<ul>
+@foreach (var song in Model)
+{
+    <li>
+        @Html.ActionLink(song.Name, "Details", "Songs", new { id=song.Id }, null)
+    </li>    
+}
+</ul>
+<p>
+    @Html.ActionLink("Browse all Artists", "Index")
+</p>

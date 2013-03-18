@@ -1,0 +1,41 @@
+@model IEnumerable<Web.ViewModels.Artist>
+
+@helper Pluralize(string singularWord, int count){
+    if (count == 1) {
+        @singularWord   
+    }
+    else
+    {
+        @(singularWord + "s")
+    }
+}
+
+@{
+    ViewBag.Title = "All Artists";
+}
+
+<h1>All Artists</h1>
+<h4>
+    @TempData[Web.Infrastructure.Constants.TempDataMessage]
+</h4>
+
+<div class="alltabs">
+@{
+    string startChar = ".";
+
+    foreach (var item in Model)
+    {
+        if (!item.ArtistName.StartsWith(startChar, StringComparison.OrdinalIgnoreCase))
+        {
+            startChar = item.ArtistName.Substring(0, 1).ToUpper();
+            <h4>
+                @startChar
+            </h4>
+        }
+        <p>
+            @Html.ActionLink(item.ArtistName, "Details", new { id = item.ArtistName })
+            (@item.TabCount @Pluralize("tab", item.TabCount))
+        </p>
+    }
+}
+</div>
