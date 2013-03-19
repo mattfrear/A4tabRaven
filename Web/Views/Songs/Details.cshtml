@@ -18,21 +18,28 @@
 <div class="tablature">
 @Html.Raw(Model.Content.Replace(" ", "&nbsp;").Replace(Environment.NewLine, "<br />"))
 </div><br />
-<p>
-    @Html.ActionLink("More from " + Model.Artist, "Details", "Artists", new { id = Model.Artist }, null)
-</p>
+<ul data-role="listview" data-inset="true">
+    <li>
+        @Html.ActionLink("More from " + Model.Artist, "Details", "Artists", new { id = Model.Artist }, null)
+    </li>
+    <li>
+        @Html.ActionLink("Browse all tabs", "Index", "Songs")
+    </li>
+</ul>
 
 <h2>Books</h2>
 <div id="books">
 @if (ViewBag.Books.Count > 0)
 {
         <p>This song is included these Songbooks:
+            <ul data-role="listview" data-inset="true">
+
             @foreach (var b in ViewBag.Books)
             {
                 var book = (Web.Models.Book)b;
-                @Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null);
-                <text>&nbsp;</text>
+                <li>@Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null)</li>
             }
+            </ul>
         </p>
 }
 else

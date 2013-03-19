@@ -31,7 +31,7 @@
 <div class="entry">
 @if (Model != null && Model.Any())
 {
-    <ul>
+    <ul data-role="listview" data-inset="true">
     @foreach (var item in Model) {
         <li>
             @Html.ActionLink(String.Format("{0} - {1}", item.Artist, item.Name), "Details", "Songs", new { id=item.Id }, null)

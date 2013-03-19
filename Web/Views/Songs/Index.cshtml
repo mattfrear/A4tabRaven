@@ -11,15 +11,17 @@
 </h4>
 
 <div class="alltabs">
+    <ul data-role="listview" data-inset="true" data-filter="true">
 @{
     string startChar = ".";
     
     foreach (var item in Model)
     {
-        @Html.UniqueStartChar(item.Artist, ref startChar);
-        <p>
+        @Html.UniqueStartChar(item.Artist, ref startChar)
+        <li>
             @Html.ActionLink(item.Artist + " - " + item.Name, "Details", new { id = item.Id })
-        </p>
+        </li>
     }
 }
+    </ul>
 </div>

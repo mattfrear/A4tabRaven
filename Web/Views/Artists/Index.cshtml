@@ -1,14 +1,5 @@
 @model IEnumerable<Web.ViewModels.Artist>
-
-@helper Pluralize(string singularWord, int count){
-    if (count == 1) {
-        @singularWord   
-    }
-    else
-    {
-        @(singularWord + "s")
-    }
-}
+@using Web.Extensions
 
 @{
     ViewBag.Title = "All Artists";
@@ -20,22 +11,22 @@
 </h4>
 
 <div class="alltabs">
-@{
+
+    <ul data-role="listview" data-inset="true" data-filter="true">
+@{    
     string startChar = ".";
 
     foreach (var item in Model)
     {
-        if (!item.ArtistName.StartsWith(startChar, StringComparison.OrdinalIgnoreCase))
-        {
-            startChar = item.ArtistName.Substring(0, 1).ToUpper();
-            <h4>
-                @startChar
-            </h4>
-        }
-        <p>
-            @Html.ActionLink(item.ArtistName, "Details", new { id = item.ArtistName })
-            (@item.TabCount @Pluralize("tab", item.TabCount))
-        </p>
+        @Html.UniqueStartChar(item.ArtistName, ref startChar)
+        <li>
+            @{var label = string.Format("{0} ({1} {2})", item.ArtistName, item.TabCount, MyHelpers.Pluralize("tab", item.TabCount)); }
+            @Html.ActionLink(label, "Details", new { id = item.ArtistName })
+        </li>
     }
 }
+    </ul>
 </div>
+<p>
+    @Html.ActionLink("Browse all tabs", "Index", "Songs")
+</p>
