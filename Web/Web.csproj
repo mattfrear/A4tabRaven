@@ -227,6 +227,7 @@
     <Content Include="Content\images\printer.png" />
     <Content Include="Content\jquery.mobile-1.1.1.css" />
     <Content Include="Content\jquery.mobile-1.1.1.min.css" />
+    <Content Include="Content\jquery.mobile.a4tab-1.1.1.css" />
     <Content Include="Content\jquery.mobile.structure-1.1.1.css" />
     <Content Include="Content\jquery.mobile.structure-1.1.1.min.css" />
     <Content Include="Content\jquery.mobile.theme-1.1.1.css" />
