@@ -195,6 +195,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Indexes\ArtistsIndex.cs" />
     <Compile Include="Infrastructure\Constants\Constants.cs" />
     <Compile Include="Infrastructure\LogEvent.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -353,6 +354,7 @@
     <Content Include="Views\Artists\Index.cshtml" />
     <Content Include="Views\Shared\_ViewSwitcher.cshtml" />
     <Content Include="Views\Shared\_Layout.Mobile.cshtml" />
+    <Content Include="Views\Shared\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Import\" />

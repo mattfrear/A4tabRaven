@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Web.Mvc;
+using Web.Indexes;
 using Web.Models;
 using Web.ViewModels;
 
@@ -12,16 +13,12 @@ namespace Web.Controllers
 
         public ViewResult Index()
         {
-            // todo figure out map reduce with Raven
-
-            var artists = RavenSession.Query<Tab>().OrderBy(t => t.Artist)
-                .ToList()
-                .GroupBy(x => x.Artist)
-                .Select(y => new Artist { ArtistName = y.Key, TabCount = y.Count() })
-                .ToList();
+            var artists = RavenSession.Query<Artist, ArtistsIndex>();
 
             if (!artists.Any())
+            {
                 return PageNotFound();
+            }
 
             return View(artists);
         }
