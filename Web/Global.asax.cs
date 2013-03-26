@@ -59,8 +59,8 @@ namespace Web
             AuthConfig.RegisterAuth();
             InitialiseDocumentStore();
 
-            //var import = new ImportTasks();
-            //import.Import();
+            var import = new ImportTasks();
+            import.Import();
         }
 
         private static void InitialiseDocumentStore()

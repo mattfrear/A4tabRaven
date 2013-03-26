@@ -13,7 +13,7 @@ namespace Web.Controllers
 
         public ViewResult Index()
         {
-            var artists = RavenSession.Query<Artist, ArtistsIndex>();
+            var artists = RavenSession.Query<Artist, ArtistsIndex>().OrderBy(x => x.ArtistName);
 
             if (!artists.Any())
             {

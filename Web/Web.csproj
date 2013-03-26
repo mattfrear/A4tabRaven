@@ -195,6 +195,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Indexes\AllDocumentsIndex.cs" />
     <Compile Include="Indexes\ArtistsIndex.cs" />
     <Compile Include="Infrastructure\Constants\Constants.cs" />
     <Compile Include="Infrastructure\LogEvent.cs" />
@@ -357,8 +358,7 @@
     <Content Include="Views\Shared\PageNotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Import\" />
-    <Folder Include="Import\" />
+    <Folder Include="App_Data\Import\Singalong\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

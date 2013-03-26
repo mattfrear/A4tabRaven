@@ -30,6 +30,7 @@ namespace Web.Controllers
                 return PageNotFound();
             }
 
+            // todo - map/reduce again
             var tabs = new List<Tab>();
             if (book.TabIds != null)
             {
