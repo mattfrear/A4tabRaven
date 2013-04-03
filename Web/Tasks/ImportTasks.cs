@@ -16,10 +16,19 @@ namespace Web.Tasks
         {
             new LogEvent("Starting import").Raise();
 
-            var physicalPath = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/Import");
+            var physicalPath = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/");
+            var subDirs = Directory.GetDirectories(physicalPath);
+
+            if (!subDirs.Any(x => x.EndsWith("Import")))
+            {
+                new LogEvent("Nothing to import, no Import folder.").Raise();
+                return;
+            }
+
+            physicalPath = Path.Combine(physicalPath, "Import");
             if (!Directory.GetFiles(physicalPath).Any())
             {
-                new LogEvent("Nothing to import").Raise();
+                new LogEvent("Nothing to import, no files present").Raise();
                 return;
             }
 
