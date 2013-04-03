@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using Web.Infrastructure;
@@ -20,25 +19,13 @@ namespace Web.Controllers
 
         //
         // GET: /Books/Details/5
-
         public ViewResult Details(int id)
         {
-            Book book = RavenSession.Include<Book>(x => x.TabIds).Load<Book>(id);
+            var book = RavenSession.Load<Book>(id);
+            var tabIds = book.TabIds.Cast<System.ValueType>();
 
-            if (book == null)
-            {
-                return PageNotFound();
-            }
-
-            // todo - map/reduce again
-            var tabs = new List<Tab>();
-            if (book.TabIds != null)
-            {
-                foreach (var tabId in book.TabIds)
-                {
-                    tabs.Add(RavenSession.Load<Tab>(tabId));
-                }
-            }
+            var tabs = RavenSession.Load<Tab>(tabIds)
+                .OrderBy(x => x.Artist).ThenBy(x => x.Name);
 
             ViewBag.BookName = book.Name;
             return View(tabs);
@@ -81,7 +68,7 @@ namespace Web.Controllers
         
         //
         // GET: /Books/Delete/5
-        [Authorize] // todo, admin roles/claim
+        [Authorize(Roles="Admin")] // todo, admin roles/claim
         public ActionResult Delete(int id)
         {
             Book book = RavenSession.Load<Book>(id);
@@ -92,7 +79,7 @@ namespace Web.Controllers
         // POST: /Books/Delete/5
 
         [HttpPost, ActionName("Delete")]
-        [Authorize] // todo, admin role
+        [Authorize(Roles="Admin")] 
         public ActionResult DeleteConfirmed(int id)
         {
             var book = RavenSession.Load<Book>(id);

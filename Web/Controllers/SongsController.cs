@@ -59,7 +59,7 @@ namespace Web.Controllers
 
         //
         // GET: /Songs/Delete/5
-
+        [Authorize(Roles="Admin")]
         public ActionResult Delete(int id)
         {
             var tab = RavenSession.Load<Tab>(id);
@@ -74,7 +74,7 @@ namespace Web.Controllers
 
         //
         // POST: /Songs/Delete/5
-
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
@@ -85,6 +85,7 @@ namespace Web.Controllers
         }
         
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult AddToBook(int id, int bookId)
         {
             var bookTasks = new BookTasks();
