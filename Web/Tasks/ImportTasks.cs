@@ -19,6 +19,12 @@ namespace Web.Tasks
             var physicalPath = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/");
             var subDirs = Directory.GetDirectories(physicalPath);
 
+            new LogEvent("Listing folders in Import folder").Raise();
+            foreach (var dir in subDirs)
+            {
+                new LogEvent(dir).Raise();
+            }
+
             if (!subDirs.Any(x => x.EndsWith("Import")))
             {
                 new LogEvent("Nothing to import, no Import folder.").Raise();

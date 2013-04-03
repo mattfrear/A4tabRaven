@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -22,7 +23,7 @@ namespace Web.Controllers
         public ViewResult Details(int id)
         {
             var book = RavenSession.Load<Book>(id);
-            var tabIds = book.TabIds.Cast<System.ValueType>();
+            var tabIds = book.TabIds.Cast<ValueType>();
 
             var tabs = RavenSession.Load<Tab>(tabIds)
                 .OrderBy(x => x.Artist).ThenBy(x => x.Name);
