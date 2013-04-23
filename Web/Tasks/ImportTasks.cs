@@ -1,12 +1,11 @@
-﻿using System.Configuration;
-using System.IO;
-using Web.Controllers;
-using Web.Models;
-using System.Linq;
-using System;
-using Web.Infrastructure;
+﻿using Raven.Abstractions.Data;
 using Raven.Client;
-using Raven.Abstractions.Data;
+using System;
+using System.IO;
+using System.Linq;
+using Web.Controllers;
+using Web.Infrastructure;
+using Web.Models;
 
 namespace Web.Tasks
 {
@@ -19,7 +18,7 @@ namespace Web.Tasks
             var physicalPath = System.Web.HttpContext.Current.Server.MapPath("~/App_Data/");
             var subDirs = Directory.GetDirectories(physicalPath);
 
-            new LogEvent("Listing folders in Import folder").Raise();
+            new LogEvent("Listing folders in App_Data folder").Raise();
             foreach (var dir in subDirs)
             {
                 new LogEvent(dir).Raise();
