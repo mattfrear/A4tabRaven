@@ -33,4 +33,4 @@ packages
 desktop.ini
 *.mdf
 *.ldf
-Web/App_Data/Database
+Web/App_Data/Database*
