@@ -1,3 +1,5 @@
+using Domain;
+using Services;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -5,7 +7,7 @@ using System.Text;
 using System.Web.Mvc;
 using Web.Infrastructure;
 using Web.Models;
-using Web.Tasks;
+
 
 namespace Web.Controllers
 {   
@@ -88,8 +90,9 @@ namespace Web.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult AddToBook(int id, int bookId)
         {
-            var bookTasks = new BookTasks();
-            bookTasks.AddTabToBook(id, bookId);
+            var bookTasks = new BookService();
+            bookTasks.AddTabToBook(id, bookId, RavenSession);
+            RavenSession.SaveChanges();
             TempData[Constants.TempDataMessage] = "Added to Book.";
 
             return RedirectToAction("Details", new { id = id });

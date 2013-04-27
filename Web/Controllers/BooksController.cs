@@ -23,6 +23,11 @@ namespace Web.Controllers
         public ViewResult Details(int id)
         {
             var book = RavenSession.Load<Book>(id);
+            if (book == null)
+            {
+                return PageNotFound();
+            }
+
             var tabIds = book.TabIds.Cast<ValueType>();
 
             var tabs = RavenSession.Load<Tab>(tabIds)

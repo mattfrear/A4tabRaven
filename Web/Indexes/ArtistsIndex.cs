@@ -1,4 +1,5 @@
-﻿using Raven.Client.Indexes;
+﻿using Domain;
+using Raven.Client.Indexes;
 using System;
 using System.Collections.Generic;
 using System.Linq;

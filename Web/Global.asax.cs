@@ -13,7 +13,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Web.Controllers;
-using Web.Tasks;
 
 namespace Web
 {
@@ -58,9 +57,6 @@ namespace Web
             BundleMobileConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
             InitialiseDocumentStore();
-
-            var import = new ImportTasks();
-            import.Import();
         }
 
         private static void InitialiseDocumentStore()

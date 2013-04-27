@@ -10,7 +10,8 @@
     @TempData[Web.Infrastructure.Constants.TempDataMessage]
 </h4>
 
-<div id="alltabs">
+<div class="alltabs">
+    <ul data-role="listview" data-inset="true" data-filter="true">
 @{
     string startChar = ".";
     
@@ -18,9 +19,10 @@
     {
         @Html.UniqueStartChar(song.Artist, ref startChar);
         
-        <p>
+        <li>
              @Html.ActionLink(song.Artist + " - " + song.Name, "Details", "Songs", new { id = song.Id }, null)
-        </p>
+        </li>
     }
 }
+    </ul>
 </div>

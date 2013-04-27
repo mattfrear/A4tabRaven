@@ -200,12 +200,7 @@
     <Compile Include="Infrastructure\Constants\Constants.cs" />
     <Compile Include="Infrastructure\LogEvent.cs" />
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\Book.cs" />
-    <Compile Include="Models\Tab.cs" />
-    <Compile Include="Models\Upload.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tasks\ImportTasks.cs" />
-    <Compile Include="Tasks\BookTasks.cs" />
     <Compile Include="ViewModels\Artist.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -467,6 +462,16 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{0d2ab428-6aa7-47bd-bea9-a8a10c5e7b0e}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{1e59d022-13bd-4bfd-ba29-c627ad7791a0}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
