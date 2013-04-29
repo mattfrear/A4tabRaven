@@ -1,4 +1,4 @@
-@model Web.Models.Tab
+@model Domain.Tab
 
 @{
     ViewBag.Title = @Model.Name + " - A4tab.net";
@@ -36,7 +36,7 @@
 
             @foreach (var b in ViewBag.Books)
             {
-                var book = (Web.Models.Book)b;
+                var book = (Domain.Book)b;
                 <li>@Html.ActionLink(book.Name, "Details", "Books", new { id = book.Id }, null)</li>
             }
             </ul>

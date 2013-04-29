@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Domain;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -38,8 +40,8 @@ namespace Web.Controllers
 
                     if (item.BookId > 0)
                     {
-                        var bookTasks = new BookTasks();
-                        bookTasks.AddTabToBook(tab.Id, item.BookId.Value);
+                        var bookTasks = new BookService();
+                        bookTasks.AddTabToBook(tab.Id, item.BookId.Value, RavenSession);
                     }
 
                     TempData.Add(Constants.TempDataMessage, "Upload successful, thanks!");
