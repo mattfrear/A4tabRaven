@@ -195,7 +195,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Indexes\AllDocumentsIndex.cs" />
     <Compile Include="Indexes\ArtistsIndex.cs" />
     <Compile Include="Infrastructure\Constants\Constants.cs" />
     <Compile Include="Infrastructure\LogEvent.cs" />
