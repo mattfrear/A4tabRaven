@@ -24,19 +24,21 @@
         @Html.ActionLink("Create New", "Create")
     </p>
 }
-<table id="allbooks">
+<div class="alltabs">
     @if (!Model.Any())
     {
         <p>No books.</p>
     }
 
+    <ul data-role="listview" data-inset="true">
+
     @foreach (var item in Model) {
-        <tr>
-            <td>
-			    @Html.ActionLink(item.Name, "Details", new { id = item.Id }) (@MyHelpers.ListCount(item.TabIds) @MyHelpers.Pluralize("song", item.TabIds))
-                @DeleteButton(item)
-		    </td>
-        </tr>
+        <li>
+            @{ var bookName = string.Format("{0} ({1} {2})", item.Name, MyHelpers.ListCount(item.TabIds), MyHelpers.Pluralize("song", item.TabIds)); }
+			@Html.ActionLink(bookName, "Details", new { id = item.Id })
+            @DeleteButton(item)
+    	</li>
     }
-</table>
+    </ul>
+</div>
 
